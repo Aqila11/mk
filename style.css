@@ -1,0 +1,250 @@
+@import "tailwindcss";
+:root {
+  --primary: #660303;
+  --bg: #e3dddb;
+  --txt: #ffffff;
+  --prim: #ae9f52;
+  --txt2: #000000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    Arial,
+    sans-serif,
+    open Sans,
+    Poppins,
+    Roboto Mono,
+    Work Sans;
+  background-color: var(--bg);
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  align-items: center;
+  position: fixed;
+  border-bottom: 0.3rem solid var(--prim);
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Navbar Links */
+.nav-u ul li {
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 1rem;
+}
+.nav-item a {
+  text-decoration: none;
+  list-style: none;
+  color: var(--txt);
+  border-bottom: 0;
+}
+.logo a {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+  color: var(--txt);
+  img {
+    margin: 0rem;
+    width: 4.5rem;
+  }
+  .judul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    line-height: 1.2;
+    border-left: 0.1rem solid var(--bg);
+    border-spacing: 1rem 1rem;
+  }
+  .judul span {
+    padding: 0.3rem;
+  }
+  .txt1 {
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: "Roboto Mono", monospace;
+  }
+  .txt2 {
+    font-size: 0.85rem;
+    font-weight: normal;
+    opacity: 0.9;
+    font-style: italic;
+    font-family: "Work Sans", sans-serif;
+  }
+}
+
+li a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--txt);
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary);
+  padding: 0.5rem 0;
+  display: none;
+  border-bottom: none;
+  transition: 2s ease-in;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar .nav-u a:hover {
+  color: var(--prim);
+}
+.navbar .nav-u a::after {
+  content: "";
+  display: block;
+  border-bottom: 0.1rem solid var(--prim);
+  padding-bottom: 0.1rem;
+  transform: scalex(0);
+  transition: 0.3s linear;
+}
+.navbar .nav-u a:hover::after {
+  transform: scaleX(1);
+}
+.judul span:hover {
+  color: var(--bg);
+}
+.nav-ex a {
+  color: var(--bg);
+  /* hover */
+  :hover {
+    color: var(--prim);
+  }
+}
+
+#hamburger-menu {
+  display: none;
+}
+/* end nav*/
+
+/* media */
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.463)),
+    url("./sman.jpg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    font-size: 3rem;
+    color: var(--txt);
+    margin-left: 50px;
+    font-family: "Roboto Mono", monospace;
+  }
+  p {
+    font-size: 1rem;
+    color: var(--txt);
+    margin-left: 50px;
+    padding-right: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  a {
+    background-color: var(--prim);
+    color: var(--txt);
+    margin-left: 50px;
+    border-radius: 0.5rem;
+  }
+}
+.abt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 50px;
+  img {
+    width: 30rem;
+    height: 20rem;
+    background-size: cover;
+  }
+  h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-left: 0;
+    display: flex;
+  }
+  p {
+    clear: both;
+    font-size: 1.3rem;
+    color: var(--txt2);
+    padding-right: 100px;
+  }
+}
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 85%;
+  }
+  .navbar {
+    padding: 0.4rem 2.9%;
+  }
+}
+/* tab */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+  ul li {
+    margin: 0;
+  }
+
+  .navbar .nav-u {
+    position: absolute;
+    top: 100%;
+    right: -50%;
+    width: 20rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    transition: 0.5s ease-out;
+    border-radius: 1rem;
+  }
+  .navbar .nav-u.active {
+    right: -1%;
+  }
+  .navbar .nav-u a {
+    display: block;
+    margin: 1.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .navbar .nav-u a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .nav-u a:hover::after {
+    transform: scaleX(0.7);
+  }
+}
+/* mobile */
+@media (max-width: 425px) {
+  html {
+    font-size: 55%;
+  }
+}
